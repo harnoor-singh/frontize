@@ -1,0 +1,30 @@
+{
+  "name": "@frontize/react",
+  "version": "0.0.0",
+  "description": "Frontize variant for react applications.",
+  "keywords": [
+    "frontize",
+    "react"
+  ],
+  "author": "AvKat <kathpal.adil@gmail.com>",
+  "homepage": "https://github.com/AvKat/frontize#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvKat/frontize.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/AvKat/frontize/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
+}

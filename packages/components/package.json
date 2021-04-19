@@ -1,0 +1,33 @@
+{
+  "name": "@frontize/components",
+  "version": "0.0.0",
+  "description": "Common components shared among frontize apps.",
+  "keywords": [
+    "frontize"
+  ],
+  "author": "AvKat <kathpal.adil@gmail.com>",
+  "homepage": "https://github.com/AvKat/frontize#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvKat/frontize.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/AvKat/frontize/issues"
+  },
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.4"
+  }
+}
