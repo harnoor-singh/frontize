@@ -1,23 +1,46 @@
-import { CMS_NAME } from '../lib/constants'
+import { useEffect, useState } from "react";
+import useStateCallback from "../hooks/useStateCallback";
+import { classnameFromList } from "../utils/classnameFromList";
 
 const Intro = () => {
+  const [isFullHeight, setIsFullHeight] = useStateCallback(true);
+
+  useEffect(() => {
+    setTimeout(() => setIsFullHeight(false), 1000);
+  }, []);
+
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
+    <section
+      className={classnameFromList([
+        "transition-all duration-500",
+        isFullHeight ? "min-h-screen" : "min-h-0",
+        "flex flex-1 flex-col",
+        "md:flex-row md:justify-between",
+        "p-10 md:px-25",
+        "bg-success text-white",
+        "items-center justify-center",
+      ])}
+    >
+      <h1
+        className={classnameFromList([
+          "text-6xl",
+          "font-bold",
+          "tracking-tighter leading-tight",
+        ])}
+      >
+        Frontize Blog
       </h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
+      <h4 className="text-lg">
+        Get to know the making of{" "}
         <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
+          href="https://github.com/AvKat/frontize.git"
+          className="underline hover:text-green-300 duration-200 transition-colors"
         >
-          Next.js
-        </a>{' '}
-        and {CMS_NAME}.
+          frontize.
+        </a>{" "}
       </h4>
     </section>
-  )
-}
+  );
+};
 
-export default Intro
+export { Intro };
