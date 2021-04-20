@@ -1,6 +1,5 @@
 const classnameFromList = (list: string[]) => {
-    return list.join(' ')
-}
+  return list.join(" ");
+};
 
-
-export {classnameFromList}
+export { classnameFromList };
