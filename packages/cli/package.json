@@ -1,14 +1,15 @@
 {
-  "name": "frontize",
+  "name": "@frontize/cli",
   "version": "0.0.0",
   "description": "The cli tool for the frontize package.",
   "keywords": [
     "frontize"
   ],
+  "bin": "./bin/index.js",
   "author": "AvKat <kathpal.adil@gmail.com>",
   "homepage": "https://github.com/AvKat/frontize#readme",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "bin/index.js",
   "files": [
     "lib"
   ],
@@ -17,14 +18,21 @@
     "url": "git+https://github.com/AvKat/frontize.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "dev": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
   },
   "bugs": {
     "url": "https://github.com/AvKat/frontize/issues"
   },
   "devDependencies": {
     "prettier": "^2.2.1",
+    "ts-loader": "^9.0.2",
     "typescript": "^4.2.4",
-    "webpack": "^5.34.0"
+    "webpack": "^5.34.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-shebang-plugin": "^1.1.4"
+  },
+  "dependencies": {
+    "yargs": "^16.2.0"
   }
 }
