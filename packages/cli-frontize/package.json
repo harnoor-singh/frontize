@@ -1,0 +1,26 @@
+{
+  "name": "frontize",
+  "version": "0.0.1",
+  "description": "A wrapper for the frontize cli.",
+  "keywords": [
+    "frontize"
+  ],
+  "bin": "index.js",
+  "author": "AvKat <kathpal.adil@gmail.com>",
+  "homepage": "https://github.com/AvKat/frontize#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvKat/frontize.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/AvKat/frontize/issues"
+  },
+  "dependencies": {
+    "@frontize/cli": "0.0.0"
+  }
+}
