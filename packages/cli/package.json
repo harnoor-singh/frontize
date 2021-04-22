@@ -5,7 +5,9 @@
   "keywords": [
     "frontize"
   ],
-  "bin": "./bin/index.js",
+  "bin": {
+    "frontize": "bin/index.js"
+  },
   "author": "AvKat <kathpal.adil@gmail.com>",
   "homepage": "https://github.com/AvKat/frontize#readme",
   "license": "MIT",
