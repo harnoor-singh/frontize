@@ -1,6 +1,6 @@
 {
   "name": "@frontize/cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The cli tool for the frontize package.",
   "keywords": [
     "frontize"
@@ -11,7 +11,8 @@
   "license": "MIT",
   "main": "bin/index.js",
   "files": [
-    "lib"
+    "bin",
+    "build"
   ],
   "repository": {
     "type": "git",
