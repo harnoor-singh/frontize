@@ -8,8 +8,7 @@ const readPackageJson = (dir: string) => {
     });
     return JSON.parse(fileData);
   } catch (error) {
-    console.log(error);
-    process.exit();
+    return null;
   }
 };
 
