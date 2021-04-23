@@ -2,7 +2,14 @@
   "name": "@frontize/root",
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0",
+    "pretty-quick": "^3.1.0"
   },
-  "workspaces": ["packages/**"]
+  "workspaces": [
+    "packages/**"
+  ],
+  "scripts": {
+    "prepare": "husky install"
+  }
 }
