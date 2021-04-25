@@ -1,8 +1,7 @@
-import Avatar from "./avatar";
+import { Avatar } from "./Avatar";
 import DateFormatter from "./date-formatter";
-import CoverImage from "./cover-image";
 import Link from "next/link";
-import Author from "../types/author";
+import { Author } from "../types";
 
 type Props = {
   title: string;
@@ -12,7 +11,7 @@ type Props = {
   slug: string;
 };
 
-const HeroPost = ({ title, date, excerpt, author, slug }: Props) => {
+const LatestPost = ({ title, date, excerpt, author, slug }: Props) => {
   return (
     <section>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
@@ -25,14 +24,23 @@ const HeroPost = ({ title, date, excerpt, author, slug }: Props) => {
           <div className="mb-4 md:mb-0 text-lg">
             <DateFormatter dateString={date} />
           </div>
+          <Avatar
+            name={author.name}
+            picture={author.picture}
+            className="hidden md:flex my-5"
+          />
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
+          <Avatar
+            name={author.name}
+            picture={author.picture}
+            className="md:hidden"
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export default HeroPost;
+export { LatestPost };

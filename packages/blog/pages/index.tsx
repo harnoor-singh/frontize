@@ -1,17 +1,21 @@
 import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
+import { LatestPost } from "../components/LatestPost";
 import { Intro } from "../components/Intro";
-import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
+import { Layout } from "../components/Layout";
+import { getAllPosts, getHelloPost } from "../lib/api";
 import Head from "next/head";
-import Post from "../types/post";
+import { Container } from "../components/Container";
+import { HelloPost } from "../components/HelloPost";
+import { SectionSeparator } from "../components/SectionSeperator";
+import { PostType } from "../types";
 
 type Props = {
-  allPosts: Post[];
+  allPosts: PostType[];
+  helloPost: PostType;
 };
 
-const Index = ({ allPosts }: Props) => {
-  const heroPost = allPosts[0];
+const Index = ({ allPosts, helloPost }: Props) => {
+  const latestPost = allPosts[0];
   const morePosts = allPosts.slice(1);
 
   return (
@@ -22,16 +26,20 @@ const Index = ({ allPosts }: Props) => {
         </Head>
         <div>
           <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <Container className="m-10">
+            <HelloPost {...helloPost} />
+            <SectionSeparator />
+            {latestPost && (
+              <LatestPost
+                title={latestPost.title}
+                date={latestPost.date}
+                author={latestPost.author}
+                slug={latestPost.slug}
+                excerpt={latestPost.excerpt}
+              />
+            )}
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          </Container>
         </div>
       </Layout>
     </>
@@ -50,9 +58,9 @@ export const getStaticProps = async () => {
     "excerpt",
   ]);
 
-  console.log(allPosts);
+  const helloPost = getHelloPost();
 
   return {
-    props: { allPosts },
+    props: { allPosts, helloPost },
   };
 };

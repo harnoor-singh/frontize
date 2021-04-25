@@ -1,5 +1,5 @@
 import Footer from "./footer";
-import Meta from "./meta";
+import { Meta } from "./Meta";
 
 type Props = {
   preview?: boolean;
@@ -18,4 +18,4 @@ const Layout = ({ preview, children }: Props) => {
   );
 };
 
-export default Layout;
+export { Layout };

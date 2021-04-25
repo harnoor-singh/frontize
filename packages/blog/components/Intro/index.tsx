@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import useStateCallback from "../hooks/useStateCallback";
-import { classnameFromList } from "../utils/classnameFromList";
+import useStateCallback from "../../hooks/useStateCallback";
+import { classnameFromList } from "../../utils/classnameFromList";
 
 let bg = "/assets/blog/background/main_background.jpg";
 
