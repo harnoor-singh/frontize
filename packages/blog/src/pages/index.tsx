@@ -2,7 +2,7 @@ import MoreStories from "../components/more-stories";
 import { LatestPost } from "../components/LatestPost";
 import { Intro } from "../components/Intro";
 import { Layout } from "../components/Layout";
-import { getAllPosts, getHelloPost } from "../lib/api";
+import { getAllPosts, getHelloPost } from "../apis/posts";
 import Head from "next/head";
 import { Container } from "../components/Container";
 import { HelloPost } from "../components/HelloPost";
