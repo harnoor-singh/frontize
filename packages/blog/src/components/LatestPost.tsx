@@ -7,7 +7,7 @@ type Props = {
   title: string;
   date: string;
   excerpt: string;
-  author: Author;
+  author: string;
   slug: string;
 };
 
@@ -24,19 +24,11 @@ const LatestPost = ({ title, date, excerpt, author, slug }: Props) => {
           <div className="mb-4 md:mb-0 text-lg">
             <DateFormatter dateString={date} />
           </div>
-          <Avatar
-            name={author.name}
-            picture={author.picture}
-            className="hidden md:flex my-5"
-          />
+          <Avatar slug={author} className="hidden md:flex my-5" />
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar
-            name={author.name}
-            picture={author.picture}
-            className="md:hidden"
-          />
+          <Avatar slug={author} className="md:hidden" />
         </div>
       </div>
     </section>

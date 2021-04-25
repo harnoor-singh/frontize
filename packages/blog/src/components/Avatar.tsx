@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export interface AvatarProps {
-  name: string;
-  picture: string;
+  slug: string;
   className?: string;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ name, picture, className }) => {
+const Avatar: React.FC<AvatarProps> = ({ slug, className }) => {
+  const [details, setDetails] = useState({ name: "", picture: "" });
+
+  useEffect(() => {
+    fetch(`/api/authors/${slug}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setDetails(json);
+      });
+  }, []);
+
   return (
     <div className={`flex items-center ${className}`}>
-      <img src={picture} className="w-12 h-12 rounded-full mr-4" alt={name} />
-      <div className="text-xl font-bold">{name}</div>
+      <img
+        src={details.picture}
+        className="w-12 h-12 rounded-full mr-4"
+        alt={details.name}
+      />
+      <div className="text-xl font-bold">{details.name}</div>
     </div>
   );
 };
