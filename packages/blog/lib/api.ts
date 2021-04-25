@@ -5,7 +5,9 @@ import matter from "gray-matter";
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return fs
+    .readdirSync(postsDirectory)
+    .filter((slug) => slug !== "hello-world.md");
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
@@ -29,11 +31,16 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
       items[field] = content;
     }
 
+    if (field === "excerpt") {
+      items[field] = content.slice(0, 100);
+    }
+
     if (data[field]) {
       items[field] = data[field];
     }
   });
 
+  console.log(items);
   return items;
 }
 

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useStateCallback from "../hooks/useStateCallback";
 import { classnameFromList } from "../utils/classnameFromList";
+
+let bg = "/assets/blog/background/main_background.jpg";
 
 const Intro = () => {
   const [isFullHeight, setIsFullHeight] = useStateCallback(true);
@@ -17,9 +19,12 @@ const Intro = () => {
         "flex flex-1 flex-col",
         "md:flex-row md:justify-between",
         "p-10 md:px-25",
-        "bg-success text-white",
+        "bg-gray-900 text-white",
         "items-center justify-center",
       ])}
+      style={{
+        backgroundImage: `url("${bg}")`,
+      }}
     >
       <h1
         className={classnameFromList([
@@ -37,7 +42,7 @@ const Intro = () => {
           className="underline hover:text-green-300 duration-200 transition-colors"
         >
           frontize.
-        </a>{" "}
+        </a>
       </h4>
     </section>
   );

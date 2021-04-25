@@ -1,6 +1,6 @@
 import MoreStories from "../components/more-stories";
 import HeroPost from "../components/hero-post";
-import { Intro } from "../components/intro";
+import { Intro } from "../components/Intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
@@ -13,6 +13,7 @@ type Props = {
 const Index = ({ allPosts }: Props) => {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
+
   return (
     <>
       <Layout>
@@ -48,6 +49,8 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
   ]);
+
+  console.log(allPosts);
 
   return {
     props: { allPosts },
