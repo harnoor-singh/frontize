@@ -24,6 +24,7 @@ const Intro = () => {
       ])}
       style={{
         backgroundImage: `url("${bg}")`,
+        backgroundPosition: "center",
       }}
     >
       <h1
