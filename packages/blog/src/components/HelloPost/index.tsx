@@ -8,7 +8,7 @@ export interface HelloPostProps {
 
 const HelloPost: React.FC<HelloPostProps> = ({ title, content }) => {
   return (
-    <div className="md:mx-14">
+    <div className="lg:mx-14">
       <h3 className="mb-4 text-4xl lg:text-6xl leading-relaxed">{title}</h3>
       <hr />
       <HtmlComponent {...{ content }} className="py-6" />
