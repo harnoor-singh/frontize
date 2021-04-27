@@ -1,10 +1,5 @@
 ---
 title: "Hello, world!"
-coverImage: "/assets/blog/hello-world/cover.jpg"
-date: "2020-03-16T05:35:07.322Z"
-author: avkat
-ogImage:
-  url: "/assets/blog/hello-world/cover.jpg"
 ---
 
 Welcome to the frontize blog.

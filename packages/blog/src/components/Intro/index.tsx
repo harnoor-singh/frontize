@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useStateCallback from "../../hooks/useStateCallback";
 import { classnameFromList } from "../../lib/classnameFromList";
 
-let bg = "/assets/blog/background/main_background.jpg";
+let bg = "/assets/background/intro.jpg";
 
 const Intro = () => {
   const [isFullHeight, setIsFullHeight] = useStateCallback(true);
