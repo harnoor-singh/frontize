@@ -31,10 +31,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
       items[field] = content;
     }
 
-    if (field === "excerpt") {
-      items[field] = content.slice(0, 100);
-    }
-
     if (data[field]) {
       items[field] = data[field];
     }

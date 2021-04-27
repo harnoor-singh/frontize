@@ -6,7 +6,7 @@ export interface AvatarProps {
 }
 
 const Avatar: React.FC<AvatarProps> = ({ slug, className }) => {
-  const [details, setDetails] = useState({ name: "", picture: "" });
+  const [details, setDetails] = useState({ name: slug, picture: "" });
 
   useEffect(() => {
     fetch(`/api/authors/${slug}`)
