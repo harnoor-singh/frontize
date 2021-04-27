@@ -1,0 +1,15 @@
+.heading {
+  @apply text-3xl;
+  @apply font-bold;
+}
+
+.paragraph {
+  @apply font-sans;
+}
+
+.link {
+  @apply text-blue-600;
+}
+.link :hover {
+  @apply underline;
+}
