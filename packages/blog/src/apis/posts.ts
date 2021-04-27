@@ -1,6 +1,7 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
+import { getCoverFromSlug } from "./post_cover";
 
 const postsDirectory = join(process.cwd(), "_data/posts");
 
@@ -29,6 +30,9 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     }
     if (field === "content") {
       items[field] = content;
+    }
+    if (field === "coverImage") {
+      items[field] = getCoverFromSlug(realSlug);
     }
 
     if (data[field]) {
