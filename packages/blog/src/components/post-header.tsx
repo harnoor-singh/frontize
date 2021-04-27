@@ -2,7 +2,6 @@ import { Avatar } from "./Avatar";
 import DateFormatter from "./date-formatter";
 import CoverImage from "./cover-image";
 import PostTitle from "./post-title";
-import { Author } from "../types";
 
 type Props = {
   title: string;

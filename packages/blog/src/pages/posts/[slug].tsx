@@ -32,7 +32,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
             <article className="mb-32">
               <Head>
                 <title>{post.title}</title>
-                <meta property="og:image" content={post.ogImage.url} />
+                <meta property="og:image" content={post.coverImage} />
               </Head>
               <PostHeader
                 title={post.title}
@@ -64,7 +64,6 @@ export async function getStaticProps({ params }: Params) {
     "slug",
     "author",
     "content",
-    "ogImage",
     "coverImage",
   ]);
 

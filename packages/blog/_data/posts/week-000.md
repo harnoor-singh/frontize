@@ -1,11 +1,9 @@
 ---
 title: "0 - Project Structure"
-coverImage: "/assets/blog/hello-world/cover.jpg"
+coverImage: "/assets/blog/posts/000.png"
 date: "2021-04-18T05:35:07.322Z"
 author: "avkat"
 excerpt: "The zero-th week of work, planning to be precise, deciding the structure of how the project will work and how will the code be arranged so as to allow expansion for a wider support. This post covers it all, along with the decision that was made and why not others."
-ogImage:
-  url: "/assets/blog/hello-world/cover.jpg"
 ---
 
 The first week - planning, discussions, disagreements and a few violent murders, all to decide what should the project look like.
