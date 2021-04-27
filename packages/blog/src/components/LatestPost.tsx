@@ -1,7 +1,7 @@
 import { Avatar } from "./Avatar";
 import DateFormatter from "./date-formatter";
 import Link from "next/link";
-import { Author } from "../types";
+import { HtmlComponent } from "./HtmlComponent";
 
 type Props = {
   title: string;
@@ -27,7 +27,11 @@ const LatestPost = ({ title, date, excerpt, author, slug }: Props) => {
           <Avatar slug={author} className="hidden md:flex my-5" />
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <HtmlComponent
+            content={excerpt}
+            lineBreaks={false}
+            className="leading-relaxed mb-4"
+          />
           <Avatar slug={author} className="md:hidden" />
         </div>
       </div>

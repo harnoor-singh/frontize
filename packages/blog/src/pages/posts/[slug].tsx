@@ -1,15 +1,13 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { Container } from "../../components/Container";
-import PostBody from "../../components/post-body";
+import { PostBody } from "../../components/PostBody";
 import Header from "../../components/header";
 import PostHeader from "../../components/post-header";
 import { Layout } from "../../components/Layout";
 import { getPostBySlug, getAllPosts } from "../../apis/posts";
 import PostTitle from "../../components/post-title";
 import Head from "next/head";
-import { CMS_NAME } from "../../lib/constants";
-import markdownToHtml from "../../lib/markdownToHtml";
 import { PostType } from "../../types";
 
 type Props = {
@@ -33,9 +31,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
           <>
             <article className="mb-32">
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{post.title}</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
@@ -71,13 +67,11 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
       post: {
         ...post,
-        content,
       },
     },
   };

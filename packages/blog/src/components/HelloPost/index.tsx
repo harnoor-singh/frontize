@@ -1,4 +1,5 @@
 import React from "react";
+import { HtmlComponent } from "../HtmlComponent";
 
 export interface HelloPostProps {
   title: string;
@@ -8,11 +9,9 @@ export interface HelloPostProps {
 const HelloPost: React.FC<HelloPostProps> = ({ title, content }) => {
   return (
     <div className="md:mx-14">
-      <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">{title}</h3>
+      <h3 className="mb-4 text-4xl lg:text-6xl leading-relaxed">{title}</h3>
       <hr />
-      <p className="text-lg leading-relaxed" style={{ whiteSpace: "pre-wrap" }}>
-        {content}
-      </p>
+      <HtmlComponent {...{ content }} className="py-6" />
     </div>
   );
 };
