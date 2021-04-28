@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import authors from "../../_data/authors.json";
 
 export interface AvatarProps {
   slug: string;
@@ -9,11 +10,11 @@ const Avatar: React.FC<AvatarProps> = ({ slug, className }) => {
   const [details, setDetails] = useState({ name: slug, picture: "" });
 
   useEffect(() => {
-    fetch(`/api/authors/${slug}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setDetails(json);
-      });
+    const authorData = (authors as any)[slug];
+    setDetails({
+      name: authorData.name,
+      picture: authorData.picture,
+    });
   }, []);
 
   return (
