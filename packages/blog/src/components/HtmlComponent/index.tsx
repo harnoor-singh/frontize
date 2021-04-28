@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRemark } from "react-remark";
 import rehypeSlug from "rehype-slug";
-import styles from "./html.module.css";
+import { Heading, CustomLink, List, Paragraph } from "./customHTML";
 
 export interface HtmlComponentProps {
   content: string;
@@ -18,13 +18,14 @@ const HtmlComponent: React.FC<HtmlComponentProps> = ({
     rehypePlugins: [rehypeSlug],
     rehypeReactOptions: {
       components: {
-        h1: (props: any) => (
-          <a href={`#${props.id}`}>
-            <h1 className={styles.heading} {...props} />
-          </a>
-        ),
-        p: (props: any) => <p className={styles.paragraph} {...props} />,
-        a: (props: any) => <a className={styles.link} {...props} />,
+        // @ts-ignore
+        h1: Heading,
+        // @ts-ignore
+        p: Paragraph,
+        // @ts-ignore
+        ul: List,
+        // @ts-ignore
+        a: CustomLink,
       },
     },
   });
