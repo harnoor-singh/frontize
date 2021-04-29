@@ -1,13 +1,16 @@
-import * as fs from "fs";
 import { projectTypes } from "../constants/projectTypes";
+import { isFrontize } from "./isFrontize";
 import { readPackageJson } from "./packageJson";
 
 const detect = (dir: string) => {
-  const packageJson = readPackageJson(dir);
+  if (isFrontize(dir)) {
+    return projectTypes.EXISTING;
+  }
 
+  const packageJson = readPackageJson(dir);
   if (!packageJson) return projectTypes.NO_PACKAGE_JSON;
 
-  const dependencies = Object.keys(packageJson.dependencies);
+  const dependencies = Object.keys(packageJson.dependencies || {});
 
   if (!dependencies) {
     return projectTypes.INVALID_PACKAGE_JSON;
