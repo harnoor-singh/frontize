@@ -19,8 +19,8 @@
   },
   "scripts": {
     "build": "webpack --mode=production",
-    "dev": "webpack --watch --mode=development",
-    "dev:start": "nodemon --exec ts-node src/index.ts"
+    "dev:webpack": "webpack --watch --mode=development",
+    "dev": "nodemon --exec ts-node src/index.ts"
   },
   "bugs": {
     "url": "https://github.com/AvKat/frontize/issues"

@@ -2,6 +2,7 @@
   "name": "@frontize/react-ui",
   "version": "0.0.1",
   "license": "MIT",
+  "homepage": ".",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
@@ -17,6 +18,7 @@
     "@snowpack/plugin-dotenv": "^2.0.5",
     "@snowpack/plugin-react-refresh": "^2.4.0",
     "@snowpack/plugin-typescript": "^1.2.0",
+    "@snowpack/plugin-webpack": "^2.3.1",
     "@snowpack/web-test-runner-plugin": "^0.2.0",
     "@testing-library/react": "^11.0.0",
     "@types/chai": "^4.2.13",
