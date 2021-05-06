@@ -17,5 +17,5 @@ export const getCoverFromSlug = (slug: string) => {
     }
   });
 
-  return join(coversPath, resPath);
+  return join(coversPath, resPath).split("\\").join("/");
 };

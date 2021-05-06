@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 type Props = {
   title: string;
@@ -9,12 +8,7 @@ type Props = {
 
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
-    <Image
-      src={src}
-      alt={`Cover Image for ${title}`}
-      layout="fill"
-      className="shadow-small"
-    />
+    <img src={src} alt={`Cover Image for ${title}`} className="shadow-small" />
   );
   return (
     <div className="sm:mx-0">
