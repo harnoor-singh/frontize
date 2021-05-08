@@ -29,7 +29,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@harnoor-singh'
       - run: npm install
-      - run: npm run build
       - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.FRONTIZE_TOKEN }}
