@@ -27,10 +27,10 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@harnoor-singh'
+          scope: '@harnoor-singh/frontize'
       - run: npm install
       - run: npm run build
       - run: npm publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.FRONTIZE_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
