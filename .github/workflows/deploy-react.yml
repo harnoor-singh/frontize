@@ -1,0 +1,36 @@
+name: Deploy React Package
+
+# Goal of this commit is to build and deploy 
+# contents of react package successfully
+# on github packages, for now.
+
+on:
+  # This should be triggered from Discord Server in future.
+  push:
+    branches: [ newcode ] # Change this later to dev
+  pull_request:
+    branches: [ newcode ] # Change this later to dev
+
+defaults:
+  run:
+    working-directory: "./packages/react"
+
+jobs:
+  deploy-react:
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@harnoor-singh'
+      - run: npm install
+      - run: npm run build
+      - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.FRONTIZE_TOKEN }}
+
