@@ -1,6 +1,8 @@
 import express from "express";
 import { join } from "path";
 import { mainRouter } from "./mainRouter";
+import { UI_PATH } from "./constants";
+import { SnowpackServer } from "./lib/SnowpackServer";
 
 import dotenv from "dotenv-flow";
 dotenv.config();
@@ -13,12 +15,15 @@ if (!process.env.NODE_ENV) {
 
 // For dev environment.
 // Add the path to .env.local of the React App you want to test with.
-const cwd = process.env.FRONTEND_PATH || "..";
-process.chdir(join(__dirname, cwd));
+const cwdRelativePath = process.env.TEST_FRONTEND_PATH || "..";
+const cwd = join(__dirname, cwdRelativePath);
+process.chdir(cwd);
+
+SnowpackServer.initialiseServer(cwd);
 
 const app = express();
 
-app.use(express.static(join(__dirname, "..", "ui", "build")));
+app.use(express.static(UI_PATH));
 app.use(mainRouter);
 
 app.listen(PORT, () => {

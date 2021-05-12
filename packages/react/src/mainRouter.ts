@@ -1,14 +1,19 @@
 import { Router } from "express";
 import { join } from "path";
+import { UI_PATH } from "./constants";
+import { SnowpackServer } from "./lib/SnowpackServer";
 
 const mainRouter = Router();
 
-mainRouter.get("/test", (req, res) => {
-  res.status(200).send({ message: "Test" });
+mainRouter.get("/build/:name(*)", async (req, res) => {
+  const { name } = req.params;
+  let result = await SnowpackServer.getComponent(name);
+  console.log(result);
+  res.status(200).send({ result });
 });
 
-mainRouter.get("/:name(*)", (req, res) => {
-  res.send(join(__dirname, "..", "ui", "build", "index.html"));
+mainRouter.get("*", (req, res) => {
+  res.sendFile(join(UI_PATH, "index.html"));
 });
 
 export { mainRouter };
