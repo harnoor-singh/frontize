@@ -1,11 +1,3 @@
-# `components`
+# Frontize Components
 
-> TODO: description
-
-## Usage
-
-```
-const components = require('components');
-
-// TODO: DEMONSTRATE API
-```
+The common components to be shared among all the individual frontize variants.

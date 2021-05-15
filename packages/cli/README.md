@@ -1,11 +1,18 @@
-# `cli`
+# Frontize CLI
 
-> TODO: description
+Easily setup frontize in your project. Just run `npx frontize init` in your project root and we'll do all the work for for you.
 
-## Usage
+### Working and TODOs
 
-```
-const cli = require('cli');
+- [x] Determine project type and find the relevant app.
+- [] Globally install the package of that app if nt already installed.
+- [] Add _cli-min_ to global packages.
 
-// TODO: DEMONSTRATE API
-```
+### Commands
+
+- init: Initialise
+- start: Start the app (Not recommended though)
+- upgrade
+- remove
+
+(More coming as needed.)

@@ -1,11 +1,9 @@
-# `react`
+# Frontize React
 
-> TODO: description
+The frontize variant to support react, and all related frameworks (eventually).
 
-## Usage
+### Working and TODOs
 
-```
-const react = require('react');
-
-// TODO: DEMONSTRATE API
-```
+- [] Will be triggered by `frontize-react` with the absolute path to the directory as the second arg.
+- [] Will load configs.
+- [] Main app.(Still figuring how to do that)

@@ -1,11 +1,3 @@
-# `cli-frontize`
+# CLI wrapper
 
-> TODO: description
-
-## Usage
-
-```
-const cliFrontize = require('cli-frontize');
-
-// TODO: DEMONSTRATE API
-```
+A wrapper for the frontize CLI so that it can be triggered by `npx frontize`.
