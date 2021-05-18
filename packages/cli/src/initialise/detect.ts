@@ -14,14 +14,16 @@ const detect = (dir: string) => {
 
   if (!dependencies) {
     return projectTypes.INVALID_PACKAGE_JSON;
-  } else if (!dependencies.includes("react")) {
-    return projectTypes.NO_REACT;
-  } else if (dependencies.includes("react-native")) {
-    return projectTypes.REACT_NATIVE;
-  } else if (dependencies.includes("next") || dependencies.includes("gatsby")) {
-    return projectTypes.UNSUPPORTED_FRAMEWORK;
-  } else if (dependencies.includes("react-dom")) {
-    return projectTypes.BASIC_REACT;
+  }
+
+  if (dependencies.includes("react")) {
+    if (dependencies.includes("react-native")) {
+      return projectTypes.REACT_NATIVE;
+    } else if (dependencies.includes("react-dom")) {
+      return projectTypes.BASIC_REACT;
+    } else {
+      return projectTypes.UNSUPPORTED_FRAMEWORK;
+    }
   }
 
   return projectTypes.UNDETECTED;

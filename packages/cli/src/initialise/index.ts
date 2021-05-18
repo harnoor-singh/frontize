@@ -1,4 +1,5 @@
 import * as fs from "fs";
+import { correspondingApps } from "../constants/correspondingApps";
 import { detect } from "./detect";
 
 const initialise = () => {
@@ -8,6 +9,9 @@ const initialise = () => {
     console.log(projectType.message);
     process.exit();
   }
+
+  const currentApp = correspondingApps[projectType.appType];
+  console.log(currentApp);
 };
 
 export { initialise };

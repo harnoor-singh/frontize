@@ -1,5 +1,4 @@
 const path = require("path");
-const ShebangPlugin = require("webpack-shebang-plugin");
 
 module.exports = {
   context: __dirname,
@@ -16,10 +15,9 @@ module.exports = {
     rules: [
       {
         test: /\.(t|j)s$/,
-        exclude: /node_modules/,
+        exclude: [/(node_modules)/, path.join(__dirname, "bin")],
         use: [{ loader: require.resolve("ts-loader") }],
       },
     ],
   },
-  plugins: [new ShebangPlugin()],
 };

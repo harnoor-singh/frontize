@@ -1,4 +1,6 @@
-const projectTypes = {
+import { ProjectObjectType } from "./constantsTypes";
+
+const projectTypes: ProjectObjectType = {
   EXISTING: {
     supported: 0,
     message:
@@ -14,10 +16,6 @@ const projectTypes = {
     message:
       "The package.json file is either corrupted, or has no 'dependencies' field.",
   },
-  NO_REACT: {
-    supported: 0,
-    message: "The project does not have react installed!",
-  },
   REACT_NATIVE: {
     supported: 0,
     message: "React native is not supported yet!",
@@ -28,11 +26,11 @@ const projectTypes = {
   },
   UNSUPPORTED_FRAMEWORK: {
     supported: 0,
-    message: "Next.js, gatsby, or other frameworks are not supported yet.",
+    message: "Your current framework isn't supported yet.",
   },
   BASIC_REACT: {
     supported: 1,
-    message: "",
+    appType: "react",
   },
 };
 
