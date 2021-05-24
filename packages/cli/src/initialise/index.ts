@@ -1,6 +1,7 @@
-import * as fs from "fs";
 import { correspondingApps } from "../constants/correspondingApps";
+import { setupProject } from "./setupProject";
 import { detect } from "./detect";
+import { installApps } from "./installApps";
 
 const initialise = () => {
   const currDir = process.cwd();
@@ -11,7 +12,8 @@ const initialise = () => {
   }
 
   const currentApp = correspondingApps[projectType.appType];
-  console.log(currentApp);
+  installApps();
+  setupProject(currentApp);
 };
 
 export { initialise };

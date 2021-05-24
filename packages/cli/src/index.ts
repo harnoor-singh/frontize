@@ -1,6 +1,7 @@
 import yargs from "yargs/yargs";
 import path from "path";
 import { initialise } from "./initialise";
+import { remove } from "./remove";
 
 const args = yargs(process.argv.slice(2))
   .usage("$0 <command> [options]")
@@ -26,6 +27,10 @@ process.chdir(path.join(process.cwd(), args.dir));
 switch (MAIN_CMD) {
   case "init":
     initialise();
+    break;
+
+  case "remove":
+    remove();
     break;
 
   default:
