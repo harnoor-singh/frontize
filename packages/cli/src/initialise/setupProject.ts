@@ -1,5 +1,6 @@
-import { mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, writeFileSync, existsSync } from "fs";
 import { CorrespondingAppsType } from "../constants/constantsTypes";
+import { join } from "path";
 
 const createConfigFile = (currentApp: CorrespondingAppsType) => {
   const configFile = {
@@ -15,6 +16,24 @@ const createConfigFile = (currentApp: CorrespondingAppsType) => {
 };
 
 const modifyGitignore = () => {
+  const checkIfGit: (start?: string) => boolean = (start = process.cwd()) => {
+    if (existsSync(start)) {
+      let gitPath = join(start, ".git");
+      if (existsSync(gitPath)) {
+        return true;
+      } else {
+        let nextStart = join(start, "..");
+        return checkIfGit(nextStart);
+      }
+    }
+
+    return false;
+  };
+
+  if (!checkIfGit()) {
+    return;
+  }
+
   const gitignoreData = "\n#frontize\n/.frontize\n";
 
   writeFileSync(".gitignore", gitignoreData, {
