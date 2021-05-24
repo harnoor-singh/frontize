@@ -1,0 +1,42 @@
+{
+  "name": "@frontize/cli-min",
+  "version": "0.0.1",
+  "description": "Minified CLI, for the main purpose of starting the app only.",
+  "bin": {
+    "fz": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "build"
+  ],
+  "keywords": [
+    "frontize",
+    "cli"
+  ],
+  "author": "AvKat <kathpal.adil@gmail.com>",
+  "homepage": "https://github.com/AvKat/frontize#readme",
+  "license": "MIT",
+  "main": "bin/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AvKat/frontize.git"
+  },
+  "scripts": {
+    "dev": "webpack --watch --mode=development",
+    "build": "webpack --mode=production",
+    "format": "prettier --write ."
+  },
+  "bugs": {
+    "url": "https://github.com/AvKat/frontize/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "ts-loader": "^9.1.1",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+}
