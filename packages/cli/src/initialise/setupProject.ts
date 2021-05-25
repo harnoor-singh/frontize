@@ -1,21 +1,23 @@
-import { mkdirSync, writeFileSync, existsSync } from "fs";
+import { promises, existsSync } from "fs";
 import { CorrespondingAppsType } from "../constants/constantsTypes";
 import { join } from "path";
 
-const createConfigFile = (currentApp: CorrespondingAppsType) => {
+const { writeFile, mkdir } = promises;
+
+const createConfigFile = async (currentApp: CorrespondingAppsType) => {
   const configFile = {
     ...currentApp,
   };
   const fileData = JSON.stringify(configFile, undefined, 2);
   try {
-    mkdirSync(".frontize");
-    writeFileSync(".frontize/frontize.config.js", fileData);
+    await mkdir(".frontize");
+    await writeFile(".frontize/frontize.config.js", fileData);
   } catch (err) {
     console.log(err);
   }
 };
 
-const modifyGitignore = () => {
+const modifyGitignore = async () => {
   const checkIfGit: (start?: string) => boolean = (start = process.cwd()) => {
     if (existsSync(start)) {
       let gitPath = join(start, ".git");
@@ -36,13 +38,13 @@ const modifyGitignore = () => {
 
   const gitignoreData = "\n#frontize\n/.frontize\n";
 
-  writeFileSync(".gitignore", gitignoreData, {
+  await writeFile(".gitignore", gitignoreData, {
     encoding: "utf8",
     flag: "a+",
   });
 };
 
-export const setupProject = (currentApp: CorrespondingAppsType) => {
-  createConfigFile(currentApp);
-  modifyGitignore();
+export const setupProject = async (currentApp: CorrespondingAppsType) => {
+  await createConfigFile(currentApp);
+  await modifyGitignore();
 };

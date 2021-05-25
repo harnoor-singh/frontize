@@ -1,26 +1,28 @@
-import { rmdirSync, readFileSync, writeFileSync, existsSync } from "fs";
+import { promises, existsSync } from "fs";
 import { join } from "path";
 
-const updateGitignore = () => {
+const { readFile, rmdir, writeFile } = promises;
+
+const updateGitignore = async () => {
   const gitignorePath = join(process.cwd(), ".gitignore");
   if (existsSync(gitignorePath)) {
-    const currentData = readFileSync(gitignorePath).toString();
+    const currentData = (await readFile(gitignorePath)).toString();
     const newData = currentData.replace(
       new RegExp("\n#frontize\n/.frontize\n", "g"),
       ""
     );
-    writeFileSync(gitignorePath, newData, {
+    await writeFile(gitignorePath, newData, {
       encoding: "utf8",
       flag: "w",
     });
   }
 };
 
-export const remove = () => {
-  rmdirSync(".frontize", {
+export const remove = async () => {
+  await rmdir(".frontize", {
     recursive: true,
     maxRetries: 5,
   });
 
-  updateGitignore();
+  await updateGitignore();
 };
